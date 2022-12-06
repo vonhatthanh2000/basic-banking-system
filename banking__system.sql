@@ -7,6 +7,10 @@
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.3.28
 
+create database if not exists banking__system;
+
+use banking__system;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -30,6 +34,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `customer` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `role` varchar(255) NOT NULL DEFAULT 'customer',
   `gender` varchar(255) NOT NULL,
   `birthday` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -69,6 +74,7 @@ INSERT INTO `customer` (`id`, `name`, `gender`, `birthday`, `email`, `phone_no`,
 CREATE TABLE `employe` (
   `id` int(11) NOT NULL,
   `employe_id` varchar(255) NOT NULL,
+  `role` varchar(255) NOT NULL DEFAULT 'employee',
   `name` varchar(255) NOT NULL,
   `gender` varchar(255) NOT NULL,
   `email_id` varchar(255) NOT NULL,
@@ -130,6 +136,7 @@ INSERT INTO `transaction` (`id`, `customer_ac`, `transaction_type`, `transfer_cu
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `usename` varchar(255) NOT NULL,
+  `role` varchar(255) NOT NULL DEFAULT 'user',
   `password` varchar(255) NOT NULL,
   `type` tinyint(4) NOT NULL,
   `last_login` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -143,6 +150,48 @@ INSERT INTO `users` (`id`, `usename`, `password`, `type`, `last_login`) VALUES
 (1, 'Spark Foundation Bank', 'admin', 0, '2021-10-06 10:52:57'),
 (2, 'EM00001', '1234567890', 1, '2021-10-06 12:29:06');
 
+
+--
+-- Table structure for table `notify`
+--
+
+CREATE TABLE `notify` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `role` enum('admin','employee','user') NOT NULL DEFAULT 'user',
+  `created_At` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transaction`
+--
+
+INSERT INTO `notify` (`id`, `title`, `content`, `role`, `created_At`) VALUES
+(1, 'Event-Based Architecture', 'Microservices
+                  are the number one
+                  solution for
+                  building and scaling out
+                  apps that are intended to grow', 'user','2021-10-06 13:13:37'),
+(2, 'How This Course Works', 'This course doesnt focus on using an off-the-shelf microservices framework. Many exist, but they hide the inner workings and challenges of microservices away from you', 'employee', '2021-10-06 13:14:01'),
+(3, 'Event-Based Architecture', 'Microservices
+                  are the number one
+                  solution for
+                  building and scaling out
+                  apps that are intended to grow', 'user','2021-10-06 13:13:37'),
+(4, 'Event-Based Architecture', 'Microservices
+                  are the number one
+                  solution for
+                  building and scaling out
+                  apps that are intended to grow', 'user','2021-10-06 13:13:37'),
+(5, 'How This Course Works', 'This course doesnt focus on using an off-the-shelf microservices framework. Many exist, but they hide the inner workings and challenges of microservices away from you', 'employee', '2021-10-06 13:14:01'),
+(6, 'How This Course Works', 'This course doesnt focus on using an off-the-shelf microservices framework. Many exist, but they hide the inner workings and challenges of microservices away from you', 'employee', '2021-10-06 13:14:01'),
+(7, 'How This Course Works', 'This course doesnt focus on using an off-the-shelf microservices framework. Many exist, but they hide the inner workings and challenges of microservices away from you', 'employee', '2021-10-06 13:14:01'),
+(8, 'How This Course Works', 'This course doesnt focus on using an off-the-shelf microservices framework. Many exist, but they hide the inner workings and challenges of microservices away from you', 'employee', '2021-10-06 13:14:01'),
+(9, 'What Technology Youll Use', 'Because we are building a full stack application, we will use a variety of technologies. On the frontend, well use React and Next JS ', 'admin', '2021-10-06 13:17:23');
+
+ALTER TABLE `notify`
+  ADD PRIMARY KEY (`id`);
 --
 -- Indexes for dumped tables
 --
