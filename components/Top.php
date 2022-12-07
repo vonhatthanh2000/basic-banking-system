@@ -30,6 +30,7 @@
   <!-- ---------External Style Sheet--------- -->
   <link rel="stylesheet" href="<?php echo SITE__PATH; ?>/style/style.css">
   <link rel="stylesheet" href="<?php echo SITE__PATH; ?>/style/notify.css">
+  <link rel="stylesheet" href="<?php echo SITE__PATH; ?>/style/queries.css">
   <!-- -----X---External Style Sheet----X---- -->
 </head>
 
