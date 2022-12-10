@@ -14,9 +14,9 @@
     <!-- ---------------Home Page--------------- -->
        <div class="container-fluid d-flex justify-content-center align-items-center" id="home__page">
            <div class="row">
-               <div class="col-12 text-center">
-                    <h2>Welcome to the</h2>
-                    <h1>Spark Foundation Bank</h1>
+               <div class="col-12 text-center" style="color:#3F2860;">
+                    <h2 style ="font-size:40px;">Welcome to the</h2>
+                    <h1 style="font-size:46px;">Bach Khoa Bank</h1>
                     <a href="<?php echo SITE__PATH; ?>/pages/Login.php?type=n"><button class="btn">Login Now</button></a>
                </div>
            </div>
