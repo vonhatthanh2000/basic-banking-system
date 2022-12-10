@@ -1,6 +1,9 @@
 <?php
     include '../components/Navigation__Bar.php';
-
+    if(!isset($_SESSION['IS_LOGGIN'])){
+        echo "<script>window.location='Login.php?type=n'</script>";
+    }
+    
     $username="";
     $oldpassword="";
     $newpassword="";
