@@ -12,13 +12,17 @@
     if(isset($_POST['submit'])){
         $username = $_SESSION['USER_NAME'];
         $oldpassword = mysqli_escape_string($con,$_POST['prepass']);
+        $hash_oldpass = md5($oldpassword);
+
         $newpassword = mysqli_escape_string($con,$_POST['newpassword']);
+        $hash_newpass = md5($newpassword);
+
         $conpassword = mysqli_escape_string($con,$_POST['conpassword']);
-        $sql = mysqli_query($con,"SELECT * FROM users WHERE usename = '$username' AND password = '$oldpassword'");
+        $sql = mysqli_query($con,"SELECT * FROM users WHERE usename = '$username' AND password = '$hash_oldpass'");
         if(mysqli_num_rows($sql)>0){
             $res=mysqli_fetch_assoc($sql);
             if($newpassword == $conpassword){
-                mysqli_query($con,"UPDATE users SET password = '$newpassword' WHERE usename = '$username' AND password = '$oldpassword'");
+                mysqli_query($con,"UPDATE users SET password = '$hash_newpass' WHERE usename = '$username' AND password = '$hash_oldpass'");
                 echo "<script>window.location='/basic-banking-system/pages/Dashboard.php?type=n'</script>";
             }
             else{
