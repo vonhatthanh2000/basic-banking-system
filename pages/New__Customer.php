@@ -12,7 +12,7 @@
         $rolee = "";
         
         $checked_ac = "";
-        $ac_number = "";
+        $noti_id = "";
 
         $msg = "";
         $msg_get ="";
@@ -29,25 +29,13 @@
             $option = mysqli_escape_string($con,$_GET['option']);
         }
         //==========View Profile Functionality===============
-            if($option == 'view'){
-                $disabled = "disabled";
-            }else{
-                $disabled = "";
-            }
+            $disabled = "";
             if($option == 'view' || $option == 'edit'){
-                $res = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM customer WHERE account_no = '$id'"));
+                $res = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM notify WHERE id = '$id'"));
                 $title = $res["title"];
                 $content = $res["content"];
                 $rolee = $res["role"];
-                $email = $res["email"];
-                $phone_no = $res["phone_no"];
-                $state =  $res["state"];
-                $district = $res["district"];
-                $city = $res["city"];
-                $pin_code = $res["pin_code"];
-                $ac_number = $res["account_no"];
-                $acount_balance = $res["acount_balance"];
-                $aadhar_number = $res["aadhar_number"];
+                $noti_id = $res["id"];
             }else{
                 // ==========Genrate Account Number===========
                     $sql_ac = mysqli_query($con,"SELECT id FROM notify ORDER BY id DESC LIMIT 1");
@@ -55,10 +43,10 @@
 
                     if(mysqli_num_rows($sql_ac)>0){
                         $prives_ac = $checked_ac['id'];
-                        $ac_number = $prives_ac+1;
-                        // $ac_number = str_pad($ac_incrase, 12,0, STR_PAD_LEFT);
+                        $noti_id = $prives_ac+1;
+                        // $noti_id = str_pad($ac_incrase, 12,0, STR_PAD_LEFT);
                     }else{
-                        $ac_number = "9";
+                        $noti_id = "9";
                     }
                 // ======X===Genrate Account Number===X=======
             }
@@ -84,7 +72,7 @@
             $content = mysqli_escape_string($con,$_POST['content']);
             $rolee = mysqli_escape_string($con,$_POST['role']);
             
-            $account_no = $ac_number;
+            $account_no = $noti_id;
 
             // $sql_fetch = mysqli_query($con,"SELECT * FROM notify WHERE aadhar_number = '$aadhar_number'");
             if($option == ''){
@@ -99,7 +87,7 @@
                     echo "<script>window.location='New__Customer.php?type=n&msg=msg'</script>";
                 // }
             }else{
-                mysqli_query($con,"UPDATE customer SET name='$name',content='$gender',role='$rolee',email='$email',phone_no='$phone_no',state='$state',district='$district',city='$city',pin_code='$pin_code',account_no='$account_no',aadhar_number='$aadhar_number',acount_balance='$acount_balance' WHERE account_no = '$id'");
+                mysqli_query($con,"UPDATE `notify` SET title = '$title', role = '$rolee', content = '$content' WHERE id = '$noti_id'");
            
                 echo "<script>window.location='Customers.php?type=n&msg=msg'</script>";
             }
@@ -134,7 +122,7 @@
             <form method="post" action="" class="row g-3 mt-2 mb-2">
                 <div class="col-xl-6">
                     <label for="id" class="form-label">Account Number</label>
-                    <input type="text" disabled value="<?php echo  $ac_number; ?>" class="form-control text-primary" id="id" name="id" required>
+                    <input type="text" disabled value="<?php echo  $noti_id; ?>" class="form-control text-primary" id="id" name="id" required>
                 </div>
                 <div class="col-md-6">
                     <label for="role" class="form-label">Role</label>
