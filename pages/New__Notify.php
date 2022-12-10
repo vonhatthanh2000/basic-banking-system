@@ -89,7 +89,7 @@
             }else{
                 mysqli_query($con,"UPDATE `notify` SET title = '$title', role = '$rolee', content = '$content' WHERE id = '$noti_id'");
            
-                echo "<script>window.location='Customers.php?type=n&msg=msg'</script>";
+                echo "<script>window.location='Notifies.php?type=n&msg=msg'</script>";
             }
         
         }

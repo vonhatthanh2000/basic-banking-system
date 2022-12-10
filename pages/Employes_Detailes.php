@@ -5,7 +5,7 @@
             echo "<script>window.location='Login.php?type=n'</script>";
         }
         if($_SESSION['ROLE'] != 0){
-            echo "<script>window.location='Customers.php?type=n'</script>";
+            echo "<script>window.location='Notifies.php?type=n'</script>";
         }
     // ========X===Condition===x=========
     $msg = '';

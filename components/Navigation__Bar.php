@@ -47,7 +47,7 @@ error_reporting(E_ALL);
           <a href="<?php echo SITE__PATH; ?>/pages/New__Employe.php?type=n">Add Employe</a>
         </li>
         <li>
-          <a href="<?php echo SITE__PATH; ?>/pages/Customers.php?type=n">All Customers</a>
+          <a href="<?php echo SITE__PATH; ?>/pages/Notifies.php?type=n">All Customers</a>
         </li>
         <li>
           <a href="<?php echo SITE__PATH; ?>/pages/Employes_Detailes.php?type=n">All Employes</a>
@@ -68,7 +68,7 @@ error_reporting(E_ALL);
             <a href="<?php echo SITE__PATH; ?>/pages/Change_Password.php?type=n">Change Password</a>
         </li>
         <li>
-          <a href="<?php echo SITE__PATH; ?>/pages/Customers.php?type=n">All Customers</a>
+          <a href="<?php echo SITE__PATH; ?>/pages/Notifies.php?type=n">All Customers</a>
         </li>
         
         <?php  

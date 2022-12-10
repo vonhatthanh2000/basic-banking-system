@@ -23,7 +23,7 @@
             if($_SESSION['ROLE'] == 0){
                 echo "<script>window.location='Dashboard.php?type=n'</script>";
             }else{
-                echo "<script>window.location='Customers.php?type=n'</script>";
+                echo "<script>window.location='Notifies.php?type=n'</script>";
             }
           
            

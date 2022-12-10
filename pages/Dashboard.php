@@ -5,7 +5,7 @@
             header('Location:Login.php?type=n');
         }
         if($_SESSION['ROLE'] != 0){
-            header('Location:Customers.php?type=n');
+            header('Location:Notifies.php?type=n');
         }
     // ========X===Condition===x=========
 
