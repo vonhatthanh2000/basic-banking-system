@@ -25,15 +25,16 @@
       $role= $_SESSION['ROLE_INFOR'];
       
       // =============Get Record with descending order of id ========================
-          $sql_command = "SELECT * FROM notify WHERE role='$role' ORDER BY id DESC";
+          $sql_command = "SELECT * FROM notify WHERE role='$role' ORDER BY id DESC LIMIT 3";
           $result = $con->query($sql_command);
-          if (isset($_SESSION[$role])) {
-            if ($_SESSION[$role]==$result->num_rows) {
+          if (isset($_COOKIE[$role])) {
+            if ($_COOKIE[$role]==$result->num_rows) {
               setcookie('bell', true, time() + (86400 * 30), "/");
             }
-            else setcookie('bell', false, time() + (86400 * 30), "/");
+            else setcookie('bell', false, time()  + (86400 * 30), "/");
           }
-          $_SESSION[$role] = $result->num_rows;
+          setcookie($role, $result->num_rows, time() + (86400 * 30), "/");
+          // $_SESSION[$role] = $result->num_rows;
 
           if ($result->num_rows > 0) {
             // output data of each row

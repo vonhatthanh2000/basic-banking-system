@@ -28,7 +28,7 @@
       // ============X==Get Data===X=========
       
       // =============Get Record==============
-          $sql_command = "SELECT * FROM notify WHERE role='$role'";
+          $sql_command = "SELECT * FROM notify WHERE role='$role' ORDER BY id DESC";
           $result = $con->query($sql_command);
           if ($result->num_rows > 0) {
             // output data of each row

@@ -25,7 +25,7 @@ error_reporting(E_ALL);
       <i class="fas fa-bars"></i>
     </div>
     <div class="nav__menu">
-      <ul class="d-flex">
+      <ul class="d-flex" >
         <?php 
                        if(!isset($_SESSION['IS_LOGGIN'])){
                     ?>
