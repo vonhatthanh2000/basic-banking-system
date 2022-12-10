@@ -52,9 +52,7 @@
         <li>
           <a href="<?php echo SITE__PATH; ?>/pages/All__Transction__History.php?type=n">All Transaction</a>
         </li>
-        <li>
-          <a href="<?php echo SITE__PATH; ?>/pages/Transaction.php?type=n">Transaction</a>
-        </li>
+        
         <li>
           <a href="<?php echo SITE__PATH; ?>/components/Logout.php">Logout</a>
         </li>
@@ -65,9 +63,7 @@
         <li>
           <a href="<?php echo SITE__PATH; ?>/pages/Customers.php?type=n">All Customers</a>
         </li>
-        <li>
-          <a href="<?php echo SITE__PATH; ?>/pages/Transaction.php?type=n">Transaction</a>
-        </li>
+        
         <?php  
                                 $euser = $_SESSION['USER_NAME'];
                                 $employe_id = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM employe WHERE employe_id = '$euser'"));
