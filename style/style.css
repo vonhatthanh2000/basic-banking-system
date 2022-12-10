@@ -43,7 +43,7 @@ body{
         position: sticky;
         top:0;
         width: 100%;
-        background-color: var(--tab__bg);
+        background-color: #25274D;
     }
     nav{
         justify-content:space-between;
@@ -51,12 +51,14 @@ body{
     }
     nav .nav__brand img{
         width: 70px;
-        height: 70px;
+        height: 100px;
         object-fit: contain;
     }
     nav .nav__brand span{
         font-weight:bold;
-        color: var(--log__color);
+        font-size: 25px;
+        color: white;
+        margin-left: 30px;
     }
     .toggle{
         position: absolute;

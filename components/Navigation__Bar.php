@@ -17,9 +17,9 @@ error_reporting(E_ALL);
 <div class="container-fluid" style="z-index: 200;" id="<?php echo $nav_id; ?>">
   <nav class="d-flex">
     <div class="nav__brand">
-      <a href="<?php echo SITE__PATH; ?>/index.php?type=home"><img src="<?php echo SITE__PATH; ?>/assets/logo.png"
+      <a href="<?php echo SITE__PATH; ?>/index.php?type=home"><img src="<?php echo SITE__PATH; ?>/assets/BK-logo.webp"
           alt="logo" />
-        <span>Spark Foundation Bank </span></a>
+        <span>BK Bank </span></a>
     </div>
     <div class="toggle">
       <i class="fas fa-bars"></i>
