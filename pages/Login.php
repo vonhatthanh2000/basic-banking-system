@@ -18,7 +18,8 @@
             $_SESSION['USER_ID']=$res['id'];
             $_SESSION['USER_NAME']=$res['usename'];
             $_SESSION['ROLE']=$res['type'];
-          
+            $_SESSION['ROLE_INFOR']=$res['role'];
+
             if($_SESSION['ROLE'] == 0){
                 echo "<script>window.location='Dashboard.php?type=n'</script>";
             }else{
@@ -37,33 +38,33 @@
     
 ?>
 
-    <!------------- Login Page ---------------->
-        <div class="container" id="login__page">
-            <?php echo $msg ?>
-            <div class="row text-center">
-                <h3>Welcome !</h3>
-                <h3>Spark Foundation Bank</h3>
-                <p>Please Login Now</p>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-xl-6">
-                    <form method="post" action="">
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Username</label>
-                            <input type="text" name="username" class="form-control" placeholder="Enter Your UserName" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control" placeholder="Enter Your Password" required>
-                        </div>
-                        <div class="mb-3">
-                            <Button type="submit" name="submit" class = "btn btn-primary">Login Now</Button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<!------------- Login Page ---------------->
+<div class="container" id="login__page">
+  <?php echo $msg ?>
+  <div class="row text-center">
+    <h3>Welcome !</h3>
+    <h3>Spark Foundation Bank</h3>
+    <p>Please Login Now</p>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-xl-6">
+      <form method="post" action="">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Username</label>
+          <input type="text" name="username" class="form-control" placeholder="Enter Your UserName" required>
         </div>
-    <!----------X--- Login Page ---X------------->
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Password</label>
+          <input type="password" name="password" class="form-control" placeholder="Enter Your Password" required>
+        </div>
+        <div class="mb-3">
+          <Button type="submit" name="submit" class="btn btn-primary">Login Now</Button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!----------X--- Login Page ---X------------->
 
 <?php
     include '../components/Footer.php';

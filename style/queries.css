@@ -1,0 +1,6 @@
+@media (max-width: 50rem) {
+  .notify-inner-container {
+    max-width: 22rem;
+    right: 20px;
+  }
+}
