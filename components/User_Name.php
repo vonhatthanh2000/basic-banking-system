@@ -8,7 +8,12 @@
         <div>
           Notify
         </div>
-        <ion-icon class='bell-icon' style='font-size: 1.6rem;' name='notifications-outline'></ion-icon>
+        <ion-icon
+        class=<?php 
+        if(!isset($_COOKIE['bell'])) {echo 'bell-icon';}
+        elseif ($_COOKIE['bell'] == true) {echo 'bell';}
+        else {echo 'bell-icon';}
+        ?> style='font-size: 1.6rem;' name='notifications-outline'></ion-icon>
       </div>
       <div class='notify-inner-container'>
         <div style='position: relative; width: 5px; height:20px'>
@@ -17,14 +22,20 @@
         <ul class='notify-content'>
           <?php 
           
-                // ==============Get Data============
       $role= $_SESSION['ROLE_INFOR'];
       
-      // ============X==Get Data===X=========
-      
-      // =============Get Record==============
-          $sql_command = "SELECT * FROM notify WHERE role='$role'";
+      // =============Get Record with descending order of id ========================
+          $sql_command = "SELECT * FROM notify WHERE role='$role' ORDER BY id DESC LIMIT 3";
           $result = $con->query($sql_command);
+          if (isset($_COOKIE[$role])) {
+            if ($_COOKIE[$role]==$result->num_rows) {
+              setcookie('bell', true, time() + (86400 * 30), "/");
+            }
+            else setcookie('bell', false, time()  + (86400 * 30), "/");
+          }
+          setcookie($role, $result->num_rows, time() + (86400 * 30), "/");
+          // $_SESSION[$role] = $result->num_rows;
+
           if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
