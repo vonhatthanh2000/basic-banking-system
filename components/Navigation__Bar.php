@@ -52,9 +52,7 @@ error_reporting(E_ALL);
         <li>
           <a href="<?php echo SITE__PATH; ?>/pages/Employes_Detailes.php?type=n">All Employes</a>
         </li>
-        <li>
-          <a href="<?php echo SITE__PATH; ?>/pages/All__Transction__History.php?type=n">All Transaction</a>
-        </li>
+        
         <li>
             <a href="<?php echo SITE__PATH; ?>/pages/Change_Password.php?type=n">Change Password</a>
         </li>
