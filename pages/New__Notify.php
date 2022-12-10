@@ -59,7 +59,7 @@
             if($msg_get == "msg"){
                 $msg = "<div class='alert alert-success alert-dismissible fade show' role='alert'>
                     <h4 class='alert-heading'>Well done!</h4>
-                    <strong>Customer Detailes Added Successfully</strong>
+                    <strong>Notify Detailes Added Successfully</strong>
                     <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                 </div>";
             }
@@ -67,7 +67,7 @@
     // =========X===Get Massege Here===X=======
 
     // ========= Send Records Functionality ========
-        if(isset($_POST['add_customer'])){
+        if(isset($_POST['add_notify'])){
             $title = mysqli_escape_string($con,$_POST['title']);
             $content = mysqli_escape_string($con,$_POST['content']);
             $rolee = mysqli_escape_string($con,$_POST['role']);
@@ -166,7 +166,7 @@
 
                 <?php }else{ ?>
                     <div class="col-12 text-center">
-                        <button type="submit" name="add_customer" class="btn btn-primary">
+                        <button type="submit" name="add_notify" class="btn btn-primary">
                             <?php
                                 if($option == 'edit'){
                                     echo 'Edit Notify Detailes';
