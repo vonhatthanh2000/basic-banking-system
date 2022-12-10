@@ -30,9 +30,6 @@
           <a href="<?php echo SITE__PATH; ?>/index.php">Home</a>
         </li>
         <li>
-          <a href="https://pruthviraj-rajput-portfolio.rf.gd">About</a>
-        </li>
-        <li>
           <a href="<?php echo SITE__PATH; ?>/pages/Login.php?type=n">Login</a>
         </li>
         <?php }else {?>
