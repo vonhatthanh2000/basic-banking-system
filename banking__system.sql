@@ -446,7 +446,9 @@ CREATE TABLE
 
 -- Dumping data for table `users`
 
---
+INSERT INTO `users` (`id`, `usename`, `password`, `type`, `last_login`) VALUES
+(1, 'admin', 'admin', 0, '2021-10-06 10:52:57'),
+(2, 'EM00001', '1234567890', 1, '2021-10-06 12:29:06');
 
 INSERT INTO
     `users` (
