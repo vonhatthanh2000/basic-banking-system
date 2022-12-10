@@ -10,11 +10,8 @@
     // ========X===Condition===x=========
 
     // ===========All Dashboard==========
-        $sql = mysqli_query($con,"SELECT * FROM customer");
-        $total_customers = mysqli_num_rows($sql);
-
-        $sql_em = mysqli_query($con,"SELECT * FROM employe");
-        $total_employes = mysqli_num_rows($sql_em);
+        $sql = mysqli_query($con,"SELECT * FROM employe");
+        $total_employes = mysqli_num_rows($sql);
         if($total_employes < 10){
             $total_employes = '0'.$total_employes;
         }
@@ -28,22 +25,12 @@
     <!-- -----------Dashboard------------ -->
         <?php include '../components/User_Name.php' ?>
         <div class="container mt-5">
-            <div class="row">
-                <div class="col-xl-6">
+            <div class="d-flex justify-content-center">
                     <div class="card text-dark bg-light mb-3" style="max-width: 27rem;">
                         <div class="card-body text-center">
                             <h4 class="card-title text-uppercase text-primary">Total Employees</h4>
-                            <h1 class="card-text text-success"><?php echo $total_customers; ?></h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="card text-dark bg-light mb-3" style="max-width: 27rem;">
-                        <div class="card-body text-center">
-                            <h4 class="card-title text-uppercase text-primary">Total Leaders</h4>
                             <h1 class="card-text text-success"><?php echo $total_employes; ?></h1>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

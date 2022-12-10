@@ -1,10 +1,6 @@
 <?php
     include '../components/Navigation__Bar.php';
-    // ===========Condition==============
-        if(!isset($_SESSION['IS_LOGGIN'])){
-            echo "<script>window.location='Login.php?type=n'</script>";
-        }
-        // ========X===Condition===x=========
+
     $username="";
     $oldpassword="";
     $newpassword="";
@@ -20,8 +16,7 @@
             $res=mysqli_fetch_assoc($sql);
             if($newpassword == $conpassword){
                 mysqli_query($con,"UPDATE users SET password = '$newpassword' WHERE usename = '$username' AND password = '$oldpassword'");
-                //$res['password'] = $newpassword;
-                echo "<script>window.location='../components/Logout.php'</script>";
+                echo "<script>window.location='/basic-banking-system/pages/Dashboard.php?type=n'</script>";
             }
             else{
                 $msg = "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
@@ -49,7 +44,7 @@
                 <div class="col-xl-6">
                     <form method="post" action="">
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Previous Password</label>
+                            <label for="exampleFormControlInput1" class="form-label">Currennt Password</label>
                             <input type="password" name="prepass" class="form-control" placeholder="Enter Your Previous Password" required>
                         </div>
                         <div class="mb-3">

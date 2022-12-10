@@ -8,6 +8,9 @@
                 $nav_id = 'navbar_home';
             }
         }
+        ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 ?>
 
 <!-- ------------------Navigation Bar--------------------- -->
@@ -52,6 +55,9 @@
         <li>
           <a href="<?php echo SITE__PATH; ?>/pages/All__Transction__History.php?type=n">All Transaction</a>
         </li>
+        <li>
+            <a href="<?php echo SITE__PATH; ?>/pages/Change_Password.php?type=n">Change Password</a>
+        </li>
         
         <li>
           <a href="<?php echo SITE__PATH; ?>/components/Logout.php">Logout</a>
@@ -59,6 +65,9 @@
         <?php }else{ ?>
         <li>
           <a href="<?php echo SITE__PATH; ?>/pages/New__Customer.php?type=n">Add Customer</a>
+        </li>
+        <li>
+            <a href="<?php echo SITE__PATH; ?>/pages/Change_Password.php?type=n">Change Password</a>
         </li>
         <li>
           <a href="<?php echo SITE__PATH; ?>/pages/Customers.php?type=n">All Customers</a>
@@ -72,9 +81,9 @@
           <a
             href="<?php echo SITE__PATH; ?>/pages/New__Employe.php?type=n&id=<?php echo $employe_id['id']?>&option=view">Profile</a>
         </li>
-                            <li>
-                                <a href="<?php echo SITE__PATH; ?>/pages/Change_Password.php?type=n">Change Password</a>
-                            </li>
+        <li>
+            <a href="<?php echo SITE__PATH; ?>/pages/Change_Password.php?type=n">Change Password</a>
+        </li>
         <li>
           <a href="<?php echo SITE__PATH; ?>/components/Logout.php">Logout</a>
         </li>
