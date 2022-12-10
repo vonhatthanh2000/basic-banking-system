@@ -72,9 +72,7 @@
                                         $dateStr=strtotime($row['created_date']);
                                         echo date('d-m-Y',$dateStr);
                                     ?></td>
-                                <td>
-                                    <a href="All__Transction__History.php?type=n&id=<?php echo $row['account_no']; ?>"><button class="btn btn-primary">Transactions</button></a>
-                                </td>
+                                
                                 <td class="d-flex justify-content-around">
                                     <a href="New__Customer.php?type=n&id=<?php echo $row['account_no']?>&option=view"><i class="far fa-eye text-primary"></i></a>
                                     <a href="New__Customer.php?type=n&id=<?php echo $row['account_no']?>&option=edit"><i class="fas fa-pen text-success"></i></a>
