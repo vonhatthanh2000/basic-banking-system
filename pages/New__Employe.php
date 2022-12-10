@@ -102,14 +102,14 @@
             $district = mysqli_escape_string($con,$_POST['district']);
             $city = mysqli_escape_string($con,$_POST['city']);
             $pin_code =mysqli_escape_string($con,$_POST['pin_code']);
-            $employe_id = $employe_id;
             $designation = mysqli_escape_string($con,$_POST['designation']);
             $salary = mysqli_escape_string($con,$_POST['salary']);
 
             if($option == ''){
+                $hash_pass = md5($phone_no);
                 mysqli_query($con,"INSERT  INTO employe (employe_id,name,gender,email_id,birthday,phone_no,state,district,city,pin_code,designation,salary) VALUES ('$employe_id','$name','$gender','$email','$birthday','$phone_no','$state','$district','$city','$pin_code','$designation','$salary')");
 
-                mysqli_query($con,"INSERT INTO users (usename,password,type) VALUES ('$employe_id','$phone_no',1)");
+                mysqli_query($con,"INSERT INTO users (usename,password,type) VALUES ('$employe_id','$hash_pass',1)");
     
                 echo "<script>window.location='New__Employe.php?type=n&msg=msg'</script>";
             }else{

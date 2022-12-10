@@ -11,7 +11,8 @@
     if(isset($_POST['submit'])){
         $username = mysqli_escape_string($con,$_POST['username']);
         $password = mysqli_escape_string($con,$_POST['password']);
-        $sql = mysqli_query($con,"SELECT * FROM users WHERE usename = '$username' AND password = '$password'");
+        $hash_pass = md5($password);
+        $sql = mysqli_query($con,"SELECT * FROM users WHERE usename = '$username' AND password = '$hash_pass'");
         if(mysqli_num_rows($sql)>0){
             $res=mysqli_fetch_assoc($sql);
             $_SESSION['IS_LOGGIN']='yes';
