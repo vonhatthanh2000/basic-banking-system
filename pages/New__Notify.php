@@ -103,30 +103,29 @@
                 <?php 
                     if($option == 'view'){
                         echo "
-                            <h2>View Customer Detailes</h2>
+                            <h2>View Notify Detailes</h2>
                             <p><span class='text-primary'>$title</span> Detailes Here...</p>
                         ";
                     }else if ($option == 'edit'){
                         echo "
-                            <h2>Edit Customer Details</h2>
+                            <h2>Edit Notify Details</h2>
                             <p><span class='text-primary'>$title</span> Edit Detailes Here...</p>
                         ";
                     }else{
                         echo "
-                            <h2>Add Customer</h2>
-                            <p>Add Customer Details Here</p>
+                            <h2>Add Notify</h2>
+                            <p>Add Notify Details Here</p>
                         ";
                     }
                 ?>
             </div>
             <form method="post" action="" class="row g-3 mt-2 mb-2">
-                <div class="col-xl-6">
+                <div class="col-xl-6" <?php 
+                    if($option == ""){
+                        echo "hidden";
+                    }?>>
                     <label for="id" class="form-label">Account Number</label>
                     <input type="text" disabled value="<?php echo  $noti_id; ?>" class="form-control text-primary" id="id" name="id" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="role" class="form-label">Role</label>
-                    <input <?php echo $disabled; ?> type="text" class="form-control" value="<?php echo $rolee ?>" id="role" name="role" required>
                 </div>
                 <div class="col-md-6">
                     <label for="content" class="form-label">Content</label>
@@ -136,6 +135,33 @@
                     <label for="title" class="form-label">Title</label>
                     <input <?php echo $disabled; ?> type="text" value="<?php echo $title ?>" name="title" class="form-control" id="title" required>
                 </div>
+                <div class="col-md-4">
+                    <label for="role" class="form-label">Role</label>
+                    <select <?php echo $disabled; ?> name="role" id="role" class="form-select" required>
+                            <?php 
+                               if($option == 'edit'){
+                                $select_admin = "";
+                                $select_employee = "";
+                                if ($rolee == 'admin') {
+                                    $select_admin = "selected";
+                                }{
+                                    $select_employee = "selected";
+                                }
+
+                                    echo "
+                                    <option value= '' >Select Role</option>
+                                    <option value='admin' ".$select_admin.">Admin</option>
+                                    <option value='employee' ".$select_employee.">Employee</option>";
+                                }else{
+                                    echo "
+                                        <option value= '' selected>Select Role</option>
+                                        <option value='admin'>Admin</option>
+                                        <option value='employee'>Employee</option>
+                                    ";
+                                }   
+                            ?>
+                    </select>
+                </div>
                 <?php if($option == 'view'){ ?>
 
                 <?php }else{ ?>
@@ -143,9 +169,9 @@
                         <button type="submit" name="add_customer" class="btn btn-primary">
                             <?php
                                 if($option == 'edit'){
-                                    echo 'Edit Customer Detailes';
+                                    echo 'Edit Notify Detailes';
                                 }else{
-                                    echo 'Add Customer';
+                                    echo 'Add Notify';
                                 }
                             ?>
                         </button>

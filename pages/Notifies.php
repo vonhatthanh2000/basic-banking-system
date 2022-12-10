@@ -12,7 +12,7 @@
             if($msg_get == "msg"){
                 $msg = "<div class='alert alert-success alert-dismissible fade show' role='alert'>
                     <h4 class='alert-heading'>Well done!</h4>
-                    <strong>Customer Detailes Edited Successfully</strong>
+                    <strong>Notify Detailes Edited Successfully</strong>
                     <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                 </div>";
             }
@@ -35,13 +35,13 @@
         $sql = mysqli_query($con,"SELECT * FROM notify ORDER BY id DESC");
     // =============Get Record==============
 ?>
-    <!-- Display Customer Table -->
+    <!-- Display Notify Table -->
         <?php include '../components/User_Name.php' ?>
         <?php echo $msg;?>
         <div class="container" id="display_record">
             <div class="row text-center">
-                <h2>All Customers</h2>
-                <p>All Customers Details Here</p>
+                <h2>All Notifies</h2>
+                <p>All Notifies Details Here</p>
             </div>
             <div class="table-responsive mt-2">
                 <table class="table table-striped table-hover table-bordered">
@@ -83,7 +83,7 @@
                 </table>
             </div>
         </div>
-    <!--X- Display Customer Table -X-->
+    <!--X- Display Notifie Table -X-->
 <?php
     include '../components/Footer.php';
 ?>
