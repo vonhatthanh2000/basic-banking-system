@@ -1,3 +1,5 @@
+
+<script src="https://code.jquery.com/jquery-latest.js"></script>
 <div class='container-fluid' id='user_name'>
   <div class='row'>
     <div class='col-8'>
@@ -8,12 +10,7 @@
         <div>
           Notify
         </div>
-        <ion-icon
-        class=<?php 
-        if(!isset($_COOKIE['bell'])) {echo 'bell-icon';}
-        elseif ($_COOKIE['bell'] == true) {echo 'bell';}
-        else {echo 'bell-icon';}
-        ?> style='font-size: 1.6rem;' name='notifications-outline'></ion-icon>
+        <ion-icon style='font-size: 1.6rem;' name='notifications-outline'></ion-icon>
       </div>
       <div class='notify-inner-container'>
         <div style='position: relative; width: 5px; height:20px'>
@@ -25,15 +22,18 @@
       $role= $_SESSION['ROLE_INFOR'];
       
       // =============Get Record with descending order of id ========================
+          $sql_full_command = "SELECT * FROM notify WHERE role='$role'";
+          $result2 = $con->query($sql_full_command);
+          
           $sql_command = "SELECT * FROM notify WHERE role='$role' ORDER BY id DESC LIMIT 3";
           $result = $con->query($sql_command);
-          if (isset($_COOKIE[$role])) {
-            if ($_COOKIE[$role]==$result->num_rows) {
+
+            if ($_COOKIE[$role]==$result2->num_rows) {
               setcookie('bell', true, time() + (86400 * 30), "/");
             }
             else setcookie('bell', false, time()  + (86400 * 30), "/");
-          }
-          setcookie($role, $result->num_rows, time() + (86400 * 30), "/");
+          
+          setcookie($role, $result2->num_rows, time() + (86400 * 30), "/");
           // $_SESSION[$role] = $result->num_rows;
 
           if ($result->num_rows > 0) {
@@ -60,3 +60,20 @@
     </div>
   </div>
 </div>
+
+<script> 
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+}
+$(function(){
+  var cookie = getCookie('bell');
+  if(cookie == false) $('ion-icon').addClass('bell-icon');
+});
+</script>
