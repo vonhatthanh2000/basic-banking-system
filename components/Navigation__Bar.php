@@ -44,13 +44,13 @@ error_reporting(E_ALL);
           <a href="<?php echo SITE__PATH; ?>/pages/New__Notify.php?type=n">Add Notify</a>
         </li>
         <li>
-          <a href="<?php echo SITE__PATH; ?>/pages/New__Employe.php?type=n">Add Employe</a>
+          <a href="<?php echo SITE__PATH; ?>/pages/New__Employe.php?type=n">Add Employee</a>
         </li>
         <li>
           <a href="<?php echo SITE__PATH; ?>/pages/Notifies.php?type=n">All Notifies</a>
         </li>
         <li>
-          <a href="<?php echo SITE__PATH; ?>/pages/Employes_Detailes.php?type=n">All Employes</a>
+          <a href="<?php echo SITE__PATH; ?>/pages/Employes_Detailes.php?type=n">All Employees</a>
         </li>
         
         <li>

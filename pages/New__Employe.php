@@ -130,12 +130,12 @@
                 <?php 
                     if($option == 'view'){
                         echo "
-                            <h2>View Employe Detailes</h2>
+                            <h2>View Employee Detailes</h2>
                             <p><span class='text-primary'>$name</span> Detailes Here...</p>
                         ";
                     }else if ($option == 'edit'){
                         echo "
-                            <h2>Edit Employe Details</h2>
+                            <h2>Edit Employee Details</h2>
                             <p><span class='text-primary'>$name</span> Edit Detailes Here...</p>
                         ";
                     }else{
@@ -148,7 +148,7 @@
             </div>
             <form method="post" action="" class="row g-3 mt-2 mb-2">
                 <div class="col-md-4">
-                    <label for="inputAddress" class="form-label">Employe Id</label>
+                    <label for="inputAddress" class="form-label">Employee Id</label>
                     <input type="text" disabled value="<?php echo $employe_id; ?>" class="form-control text-primary" id="inputAddress" name="employe_id" required>
                 </div>
                 <div class="col-md-4">
@@ -160,7 +160,7 @@
                     <input <?php echo $disabled; ?> type="text" value="<?php echo $salary ?>" class="form-control" id="inputAddress" name="salary" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Employe Name</label>
+                    <label for="inputEmail4" class="form-label">Employee Name</label>
                     <input <?php echo $disabled; ?> type="text" value="<?php echo $name ?>" name="name" class="form-control" id="inputEmail4" required>
                 </div>
                 <div class="col-md-6">
@@ -225,9 +225,9 @@
                         <button type="submit" name="add_employe" class="btn btn-primary">
                             <?php
                                 if($option == 'edit'){
-                                    echo 'Edit Employe Detailes';
+                                    echo 'Edit Employee Detailes';
                                 }else{
-                                    echo 'Add Employe';
+                                    echo 'Add Employee';
                                 }
                             ?>
                         </button>

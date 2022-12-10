@@ -15,9 +15,6 @@
         if($total_employes < 10){
             $total_employes = '0'.$total_employes;
         }
-        
-        $total = mysqli_fetch_assoc($balance);
-      
     // =========X==All Dashboard==X========
    
 ?>

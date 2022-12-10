@@ -16,7 +16,7 @@
             if($msg_get == "msg"){
                 $msg = "<div class='alert alert-success alert-dismissible fade show' role='alert'>
                     <h4 class='alert-heading'>Well done!</h4>
-                    <strong>Employe Detailes Edited Successfully</strong>
+                    <strong>Employee Detailes Edited Successfully</strong>
                     <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                 </div>";
             }
@@ -45,14 +45,14 @@
         <?php echo $msg;?>
         <div class="container" id="display_record">
             <div class="row text-center">
-                <h2>All Employes</h2>
-                <p>All Employes Details Here</p>
+                <h2>All Employees</h2>
+                <p>All Employees Details Here</p>
             </div>
             <div class="table-responsive mt-2">
                 <table class="table table-striped table-hover table-bordered">
                     <thead>
                         <tr>
-                            <th width="15%" scope="col">Employe Id</th>
+                            <th width="15%" scope="col">Employee Id</th>
                             <th width="15%" scope="col">Designation</th>
                             <th width="10%" scope="col">Salary</th>
                             <th width="20%" scope="col">Name</th>

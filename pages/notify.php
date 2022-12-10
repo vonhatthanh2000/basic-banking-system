@@ -35,8 +35,7 @@
             while($row = $result->fetch_assoc()) {
               ?>
       <li>
-        <a href='https://www.udemy.com/course/microservices-with-node-js-and-react' target="_blank"
-          class='content-link'>
+        <div class='content-link'>
 
           <div class='title-notification'>
             <p><?php echo $row['title']; ?> </p>
