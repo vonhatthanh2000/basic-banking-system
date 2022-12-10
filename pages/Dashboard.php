@@ -29,27 +29,19 @@
         <?php include '../components/User_Name.php' ?>
         <div class="container mt-5">
             <div class="row">
-                <div class="col-xl-4">
-                    <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+                <div class="col-xl-6">
+                    <div class="card text-dark bg-light mb-3" style="max-width: 27rem;">
                         <div class="card-body text-center">
-                            <h4 class="card-title text-uppercase text-primary">Total Customers</h4>
+                            <h4 class="card-title text-uppercase text-primary">Total Employees</h4>
                             <h1 class="card-text text-success"><?php echo $total_customers; ?></h1>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4">
-                    <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+                <div class="col-xl-6">
+                    <div class="card text-dark bg-light mb-3" style="max-width: 27rem;">
                         <div class="card-body text-center">
-                            <h4 class="card-title text-uppercase text-primary">Total Employees</h4>
+                            <h4 class="card-title text-uppercase text-primary">Total Leaders</h4>
                             <h1 class="card-text text-success"><?php echo $total_employes; ?></h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
-                        <div class="card-body text-center">
-                            <h4 class="card-title text-uppercase text-primary">Total Bank Balance</h4>
-                            <h1 class="card-text text-success"><?php echo  $total['value_sum'];  ?> &#8377;</h1>
                         </div>
                     </div>
                 </div>

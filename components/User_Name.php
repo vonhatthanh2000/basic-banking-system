@@ -1,18 +1,12 @@
-<div class='container-fluid' id='user_name'>
-  <div class='row'>
-    <div class='col-8'>
-      <h3>Welcome ! <span><?php echo $_SESSION['USER_NAME']; ?></span></h3>
-    </div>
-    <div class='col-4 notify-container'>
-      <div class='notify-header'>
-        <div>
-          Notify
-        </div>
-        <ion-icon class='bell-icon' style='font-size: 1.6rem;' name='notifications-outline'></ion-icon>
-      </div>
-      <div class='notify-inner-container'>
-        <div style='position: relative; width: 5px; height:20px'>
-          <button class='button-close'>X</button>
+<div class="container-fluid" id="user_name">
+    <div class="row">
+        <div class="col-12">
+            <h3>Welcome ! <span><?php echo $_SESSION['USER_NAME']; echo ' - '; 
+            if($_SESSION['ROLE'] == 0){echo "Admin";} 
+            else if($_SESSION['ROLE'] == 1) {echo "Leader";}
+            else{
+                echo "Employee";
+            } ?></span></h3>
         </div>
         <ul class='notify-content'>
           <?php 
