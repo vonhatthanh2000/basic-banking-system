@@ -7,19 +7,10 @@
     // ========X===Condition===x=========
 
     //=========== Variable Declreation ==========
-        $name = "";
-        $gender = "";
-        $birthday = "";
-        $email = "";
-        $phone_no = "";
-        $state = "";
-        $district = "";
-        $city = "";
-        $pin_code = "";
-        $account_no = "";
-        $acount_balance = 200;
-        $aadhar_number = "";
-
+        $title = "";
+        $content = "";
+        $rolee = "";
+        
         $checked_ac = "";
         $ac_number = "";
 
@@ -45,9 +36,9 @@
             }
             if($option == 'view' || $option == 'edit'){
                 $res = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM customer WHERE account_no = '$id'"));
-                $name = $res["name"];
-                $gender = $res["gender"];
-                $birthday = $res["birthday"];
+                $title = $res["title"];
+                $content = $res["content"];
+                $rolee = $res["role"];
                 $email = $res["email"];
                 $phone_no = $res["phone_no"];
                 $state =  $res["state"];
@@ -59,18 +50,15 @@
                 $aadhar_number = $res["aadhar_number"];
             }else{
                 // ==========Genrate Account Number===========
-                    $sql_ac = mysqli_query($con,"SELECT account_no FROM customer ORDER BY id DESC LIMIT 1");
+                    $sql_ac = mysqli_query($con,"SELECT id FROM notify ORDER BY id DESC LIMIT 1");
                     $checked_ac = mysqli_fetch_assoc($sql_ac);
 
                     if(mysqli_num_rows($sql_ac)>0){
-                        $prives_ac = $checked_ac['account_no'];
-                        $get_ac = str_replace("AC", "", $prives_ac);
-                        $ac_incrase = $get_ac+1;
-                        $get_ac_string = str_pad($ac_incrase, 12,0, STR_PAD_LEFT);
-
-                        $ac_number = "AC".$get_ac_string;
+                        $prives_ac = $checked_ac['id'];
+                        $ac_number = $prives_ac+1;
+                        // $ac_number = str_pad($ac_incrase, 12,0, STR_PAD_LEFT);
                     }else{
-                        $ac_number = "AC677209939100";
+                        $ac_number = "9";
                     }
                 // ======X===Genrate Account Number===X=======
             }
@@ -92,33 +80,26 @@
 
     // ========= Send Records Functionality ========
         if(isset($_POST['add_customer'])){
-            $name = mysqli_escape_string($con,$_POST['name']);
-            $gender = mysqli_escape_string($con,$_POST['gender']);
-            $birthday = mysqli_escape_string($con,$_POST['birthday']);
-            $email = mysqli_escape_string($con,$_POST['email']);
-            $phone_no = mysqli_escape_string($con,$_POST['phone_no']);
-            $state = mysqli_escape_string($con,$_POST['state']);
-            $district = mysqli_escape_string($con,$_POST['district']);
-            $city = mysqli_escape_string($con,$_POST['city']);
-            $pin_code =mysqli_escape_string($con,$_POST['pin_code']);
+            $title = mysqli_escape_string($con,$_POST['title']);
+            $content = mysqli_escape_string($con,$_POST['content']);
+            $rolee = mysqli_escape_string($con,$_POST['role']);
+            
             $account_no = $ac_number;
-            $acount_balance = mysqli_escape_string($con,$_POST['account_balance']);
-            $aadhar_number = mysqli_escape_string($con,$_POST['aadhar_number']);
 
-            $sql_fetch = mysqli_query($con,"SELECT * FROM customer WHERE aadhar_number = '$aadhar_number'");
+            // $sql_fetch = mysqli_query($con,"SELECT * FROM notify WHERE aadhar_number = '$aadhar_number'");
             if($option == ''){
-                if(mysqli_num_rows($sql_fetch)>0){
-                    $msg = "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
-                        <strong>Ooop!</strong> Cusstomer Account Alrady Exist! Because Addhar Number is Alrady Linked.
-                        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
-                    </div>";
-                }else{
-                    mysqli_query($con,"INSERT  INTO customer (name,gender,birthday,email,phone_no,state,district,city,pin_code,account_no,aadhar_number,acount_balance) VALUES ('$name','$gender',' $birthday','$email','$phone_no','$state','$district','$city','$pin_code','$account_no','$aadhar_number','$acount_balance')");
+                // if(mysqli_num_rows($sql_fetch)>0){
+                //     $msg = "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+                //         <strong>Ooop!</strong> Cusstomer Account Alrady Exist! Because Addhar Number is Alrady Linked.
+                //         <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                //     </div>";
+                // }else{
+                    mysqli_query($con,"INSERT INTO `notify` (`title`, `content`, `role`) VALUES ('$title', '$content', '$rolee')");
 
                     echo "<script>window.location='New__Customer.php?type=n&msg=msg'</script>";
-                }
+                // }
             }else{
-                mysqli_query($con,"UPDATE customer SET name='$name',gender='$gender',birthday='$birthday',email='$email',phone_no='$phone_no',state='$state',district='$district',city='$city',pin_code='$pin_code',account_no='$account_no',aadhar_number='$aadhar_number',acount_balance='$acount_balance' WHERE account_no = '$id'");
+                mysqli_query($con,"UPDATE customer SET name='$name',content='$gender',role='$rolee',email='$email',phone_no='$phone_no',state='$state',district='$district',city='$city',pin_code='$pin_code',account_no='$account_no',aadhar_number='$aadhar_number',acount_balance='$acount_balance' WHERE account_no = '$id'");
            
                 echo "<script>window.location='Customers.php?type=n&msg=msg'</script>";
             }
@@ -135,12 +116,12 @@
                     if($option == 'view'){
                         echo "
                             <h2>View Customer Detailes</h2>
-                            <p><span class='text-primary'>$name</span> Detailes Here...</p>
+                            <p><span class='text-primary'>$title</span> Detailes Here...</p>
                         ";
                     }else if ($option == 'edit'){
                         echo "
                             <h2>Edit Customer Details</h2>
-                            <p><span class='text-primary'>$name</span> Edit Detailes Here...</p>
+                            <p><span class='text-primary'>$title</span> Edit Detailes Here...</p>
                         ";
                     }else{
                         echo "
@@ -151,76 +132,21 @@
                 ?>
             </div>
             <form method="post" action="" class="row g-3 mt-2 mb-2">
-                <div class="col-xl-4">
-                    <label for="inputAddress" class="form-label">Account Number</label>
-                    <input type="text" disabled value="<?php echo  $ac_number; ?>" class="form-control text-primary" id="inputAddress" name="employe_id" required>
-                </div>
-                <div class="col-md-4">
-                    <label for="inputAddress" class="form-label">Aadhar Number</label>
-                    <input <?php echo $disabled; ?> type="text" class="form-control" value="<?php echo $aadhar_number ?>" id="inputAddress" name="aadhar_number" required>
-                </div>
-                <div class="col-md-4">
-                    <label for="inputAddress" class="form-label">Account Balance</label>
-                    <input <?php echo $disabled; ?> type="text" value="<?php echo $acount_balance ?>" class="form-control" id="inputAddress" name="account_balance" required>
+                <div class="col-xl-6">
+                    <label for="id" class="form-label">Account Number</label>
+                    <input type="text" disabled value="<?php echo  $ac_number; ?>" class="form-control text-primary" id="id" name="id" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Account Holder Name</label>
-                    <input <?php echo $disabled; ?> type="text" value="<?php echo $name ?>" name="name" class="form-control" id="inputEmail4" required>
+                    <label for="role" class="form-label">Role</label>
+                    <input <?php echo $disabled; ?> type="text" class="form-control" value="<?php echo $rolee ?>" id="role" name="role" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputPassword4" class="form-label">Email Id</label>
-                    <input <?php echo $disabled; ?> type="email" value="<?php echo $email ?>" class="form-control" name="email" id="inputPassword4" required>
-                </div>
-                <div class="col-md-4">
-                    <label for="inputEmail4" class="form-label">Gender</label>
-                    <select <?php echo $disabled; ?> name="gender" id="inputState" class="form-select" required>
-                            <?php 
-                                if($option == 'view'){
-                                    echo "<option value= '$gender' selected>$gender</option>";
-                                }else if($option == 'edit'){
-                                    echo "
-                                    <option value= '$gender' selected>$gender</option>
-                                    <option value='Male'>Male</option>
-                                    <option value='Female'>Femail</option>";
-                                }else{
-                                    echo "
-                                        <option value= '' selected>Select Gender</option>
-                                        <option value='Male'>Male</option>
-                                        <option value='Female'>Femail</option>
-                                    ";
-                                }   
-                            ?>
-                    </select>
-                </div>
-                <div class="col-md-4">
-                    <label for="inputEmail4" class="form-label">Phone Number</label>
-                    <input <?php echo $disabled; ?> type="text" value="<?php echo $phone_no ?>" class="form-control" name="phone_no" id="inputPassword4" required>
-                </div>
-                <div class="col-md-4">
-                    <label for="inputEmail4" class="form-label">Birth Date</label>
-                    <input <?php echo $disabled; ?>
-                        <?php if($option == 'view' || $option == 'edit'){
-                                echo 'type=text';
-                            }else{
-                                echo 'type=date';
-                            } 
-                        ?> value="<?php echo $birthday ?>"  class="form-control" name="birthday" id="inputPassword4" required>
+                    <label for="content" class="form-label">Content</label>
+                    <input <?php echo $disabled; ?> type="text" value="<?php echo $content ?>" class="form-control" id="content" name="content" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">State</label>
-                    <input <?php echo $disabled; ?> type="text" value="<?php echo $state ?>" class="form-control" name="state" id="inputPassword4" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="inputPassword4" class="form-label">District</label>
-                    <input <?php echo $disabled; ?> type="text" value="<?php echo $district ?>" class="form-control" name="district" id="inputPassword4" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="inputAddress" class="form-label">City</label>
-                    <input <?php echo $disabled; ?> type="text" value="<?php echo $city ?>" class="form-control" id="inputAddress" name="city" required>
-                </div>
-                <div class="col-md-6">
-                    <label for="inputAddress" class="form-label">Pin Code</label>
-                    <input <?php echo $disabled; ?> type="text" value="<?php echo $pin_code ?>" class="form-control" id="inputAddress" name="pin_code" required>
+                    <label for="title" class="form-label">Title</label>
+                    <input <?php echo $disabled; ?> type="text" value="<?php echo $title ?>" name="title" class="form-control" id="title" required>
                 </div>
                 <?php if($option == 'view'){ ?>
 
