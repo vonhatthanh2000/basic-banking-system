@@ -5,7 +5,7 @@
             header('Location:Login.php?type=n');
         }
         if($_SESSION['ROLE'] != 0){
-            header('Location:Customers.php?type=n');
+            header('Location:Notifies.php?type=n');
         }
     // ========X===Condition===x=========
 
@@ -16,7 +16,6 @@
             $total_employes = '0'.$total_employes;
         }
         
-        $balance = mysqli_query($con,"SELECT SUM(acount_balance) AS value_sum FROM customer");
         $total = mysqli_fetch_assoc($balance);
       
     // =========X==All Dashboard==X========

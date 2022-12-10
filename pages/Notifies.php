@@ -12,7 +12,7 @@
             if($msg_get == "msg"){
                 $msg = "<div class='alert alert-success alert-dismissible fade show' role='alert'>
                     <h4 class='alert-heading'>Well done!</h4>
-                    <strong>Customer Detailes Edited Successfully</strong>
+                    <strong>Notify Detailes Edited Successfully</strong>
                     <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                 </div>";
             }
@@ -25,37 +25,35 @@
             $option = mysqli_escape_string($con,$_GET['option']);
 
             if($option == 'delete'){
-                mysqli_query($con,"DELETE FROM customer WHERE account_no = '$id'");
-                mysqli_query($con,"DELETE FROM transaction WHERE customer_ac = '$id'");
-                echo "<script>window.location='Customers.php?type=n'</script>";
+                mysqli_query($con,"DELETE FROM notify WHERE id = '$id'");
+                echo "<script>window.location='Notifies.php?type=n'</script>";
             }
         }
     // =======X===Delete Functionality===X======
 
     // =============Get Record==============
-        $sql = mysqli_query($con,"SELECT * FROM customer ORDER BY id DESC");
+        $sql = mysqli_query($con,"SELECT * FROM notify ORDER BY id DESC");
     // =============Get Record==============
 ?>
-    <!-- Display Customer Table -->
+    <!-- Display Notify Table -->
         <?php include '../components/User_Name.php' ?>
         <?php echo $msg;?>
         <div class="container" id="display_record">
             <div class="row text-center">
-                <h2>All Customers</h2>
-                <p>All Customers Details Here</p>
+                <h2>All Notifies</h2>
+                <p>All Notifies Details Here</p>
             </div>
             <div class="table-responsive mt-2">
                 <table class="table table-striped table-hover table-bordered">
                     <thead>
                         <tr>
-                            <th width="15%" scope="col">Account Number</th>
-                            <th width="15%" scope="col">Aadhar Number</th>
-                            <th width="10%" scope="col">Account Balance</th>
-                            <th width="20%" scope="col">Name</th>
-                            <th width="10%" scope="col">Gender</th>
-                            <th width="10%" scope="col">Created</th>
-                            <th width="10%" scope="col">Transaction</th>
-                            <th width="10%" scope="col">Action</th>
+                            <th width="2%" scope="col">ID</th>
+                            <th width="15%" scope="col">Title</th>
+                            <th width="30%" scope="col">Content</th>
+                            <th width="5%" scope="col">Role</th>
+                            <th width="6%" scope="col">Created At </th>
+                            <th width="6%" scope="col">Options</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -63,20 +61,21 @@
                             while ($row = mysqli_fetch_assoc($sql)){
                         ?>
                             <tr>
-                                <th scope="row" class="text-primary"><?php echo $row['account_no']; ?></th>
-                                <th scope="row" class="text-success"><?php echo  $row['aadhar_number']; ?></th>
-                                <td><?php echo $row['acount_balance']?> &#8377;</td>
-                                <td><?php echo $row['name']?></td>
-                                <td><?php echo $row['gender']?></td>
-                                <td><?php 
-                                        $dateStr=strtotime($row['created_date']);
+                                <th scope="row" class="text-primary"><?php echo $row['id']?></th>
+                                <th scope="row" class="text-success"><?php echo  $row['title']?></th>
+                                <td><?php echo $row['content']?></td>
+                                <td><?php echo $row['role']?></td>
+                                <td>
+                                    <?php 
+                                        $dateStr=strtotime($row['created_At']);
                                         echo date('d-m-Y',$dateStr);
-                                    ?></td>
+                                    ?>
+                                </td>
                                 
                                 <td class="d-flex justify-content-around">
-                                    <a href="New__Customer.php?type=n&id=<?php echo $row['account_no']?>&option=view"><i class="far fa-eye text-primary"></i></a>
-                                    <a href="New__Customer.php?type=n&id=<?php echo $row['account_no']?>&option=edit"><i class="fas fa-pen text-success"></i></a>
-                                    <a href="?type=n&id=<?php echo $row['account_no']?>&option=delete"><i class="fas fa-trash text-danger"></i></a>
+                                    <a href="New__Notify.php?type=n&id=<?php echo $row['id']?>&option=view"><i class="far fa-eye text-primary"></i></a>
+                                    <a href="New__Notify.php?type=n&id=<?php echo $row['id']?>&option=edit"><i class="fas fa-pen text-success"></i></a>
+                                    <a href="?type=n&id=<?php echo $row['id']?>&option=delete"><i class="fas fa-trash text-danger"></i></a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -84,7 +83,7 @@
                 </table>
             </div>
         </div>
-    <!--X- Display Customer Table -X-->
+    <!--X- Display Notifie Table -X-->
 <?php
     include '../components/Footer.php';
 ?>

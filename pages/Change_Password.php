@@ -36,7 +36,7 @@
     }
     // ========X===Condition===x=========
 ?>
-    <!-- Display Customer Table -->
+    <!-- Display Notify Table -->
         <?php include '../components/User_Name.php' ?>
         <?php echo $msg ?>
         <div class="container" id="display_record">
@@ -65,7 +65,7 @@
                 </div>
             </div>
         </div>
-    <!--X- Display Customer Table -X-->
+    <!--X- Display Notify Table -X-->
 <?php
     include '../components/Footer.php';
 ?>

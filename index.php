@@ -5,7 +5,7 @@
             if($_SESSION['ROLE'] == 0){
                 echo "<script>window.location='pages/Dashboard.php?type=n'</script>";
             }else{
-                echo "<script>window.location='pages/Customers.php?type=n'</script>";
+                echo "<script>window.location='pages/Notifies.php?type=n'</script>";
             }
         }
     // ========X===Condition===x=========   
