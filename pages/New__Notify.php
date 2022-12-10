@@ -84,7 +84,7 @@
                 // }else{
                     mysqli_query($con,"INSERT INTO `notify` (`title`, `content`, `role`) VALUES ('$title', '$content', '$rolee')");
 
-                    echo "<script>window.location='New__Customer.php?type=n&msg=msg'</script>";
+                    echo "<script>window.location='New__Notify.php?type=n&msg=msg'</script>";
                 // }
             }else{
                 mysqli_query($con,"UPDATE `notify` SET title = '$title', role = '$rolee', content = '$content' WHERE id = '$noti_id'");
