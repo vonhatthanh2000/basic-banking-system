@@ -4,7 +4,7 @@
     include 'database.php';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" stype="height:100%" position:relative>
 
 <head>
   <meta charset="UTF-8">
@@ -33,5 +33,12 @@
   <link rel="stylesheet" href="<?php echo SITE__PATH; ?>/style/queries.css">
   <!-- -----X---External Style Sheet----X---- -->
 </head>
-
-<body>
+<style>
+  body::after{
+    margin-top:20px;
+    height: 330px;
+    content: '';
+    display: block;
+  }
+</style>
+<body style="min-height:100vh; display:block;position:relative">
