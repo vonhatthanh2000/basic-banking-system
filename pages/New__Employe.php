@@ -103,7 +103,7 @@
 
             if($option == ''){
                 $hash_pass = md5($phone_no);
-                mysqli_query($con,"INSERT  INTO employe (employe_id,name,gender,email_id,birthday,phone_no,state,district,city,pin_code,designation,salary) VALUES ('$employe_id','$name','$gender','$email','$birthday','$phone_no','$state','$district','$city','$pin_code','$designation','$salary')");
+                mysqli_query($con,"INSERT  INTO employe (employe_id,name,gender,email_id,birthday,phone_no,district,city,designation,salary) VALUES ('$employe_id','$name','$gender','$email','$birthday','$phone_no','$district','$city','$designation','$salary')");
 
                 if($rolee == "admin"){
                     mysqli_query($con,"INSERT INTO users (usename,password,type,role) VALUES ('$employe_id','$hash_pass',0,'admin')");
@@ -113,7 +113,7 @@
     
                 echo "<script>window.location='New__Employe.php?type=n&msg=msg'</script>";
             }else{
-                mysqli_query($con,"UPDATE employe SET employe_id='$employe_id',name='$name',gender='$gender',email_id='$email',birthday='$birthday',phone_no='$phone_no',state='$state',district='$district',city='$city',pin_code='$pin_code',designation='$designation',salary='$salary' WHERE id = $id");
+                mysqli_query($con,"UPDATE employe SET employe_id='$employe_id',name='$name',gender='$gender',email_id='$email',birthday='$birthday',phone_no='$phone_no',district='$district',city='$city',designation='$designation',salary='$salary' WHERE id = $id");
                 
                 if($rolee == 'admin'){
                     mysqli_query($con,"UPDATE users SET type='0', role='admin' WHERE usename = '$employe_id'");
