@@ -41,4 +41,4 @@
     display: block;
   }
 </style>
-<body style="min-height:100vh; display:block;position:relative">
+<body style="min-height:100vh; display:block;position:relative;">
