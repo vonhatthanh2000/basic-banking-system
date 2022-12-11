@@ -73,7 +73,6 @@
                                 </td>
                                 
                                 <td class="d-flex justify-content-around">
-                                    <a href="New__Notify.php?type=n&id=<?php echo $row['id']?>&option=view"><i class="far fa-eye text-primary"></i></a>
                                     <a href="New__Notify.php?type=n&id=<?php echo $row['id']?>&option=edit"><i class="fas fa-pen text-success"></i></a>
                                     <a href="?type=n&id=<?php echo $row['id']?>&option=delete"><i class="fas fa-trash text-danger"></i></a>
                                 </td>
