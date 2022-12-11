@@ -26,11 +26,9 @@ SET time_zone = "+00:00";
 
 --
 
-CREATE TABLE
-    `employe` (
+CREATE TABLE `employe` (
         `id` int(11) NOT NULL,
         `employe_id` varchar(255) NOT NULL,
-        `role` varchar(255) NOT NULL DEFAULT 'employee',
         `name` varchar(255) NOT NULL,
         `gender` varchar(255) NOT NULL,
         `email_id` varchar(255) NOT NULL,
@@ -102,7 +100,7 @@ CREATE TABLE
     `users` (
         `id` int(11) NOT NULL,
         `usename` varchar(255) NOT NULL,
-        `role` varchar(255) NOT NULL DEFAULT 'user',
+        `role` enum('admin', 'employee') NOT NULL DEFAULT 'employee',
         `password` varchar(255) NOT NULL,
         `type` tinyint(4) NOT NULL,
         `last_login` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -145,8 +143,8 @@ CREATE TABLE
     `notify` (
         `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
         `title` varchar(255) NOT NULL,
+        `role` enum('admin', 'employee') NOT NULL DEFAULT 'employee',
         `content` varchar(255) NOT NULL,
-        `role` enum('admin', 'employee', 'user') NOT NULL DEFAULT 'user',
         `created_At` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
@@ -164,7 +162,7 @@ INSERT INTO
 VALUES (
         'Event-Based Architecture',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        'user',
+        'employee',
         '2021-10-06 13:13:37'
     ), (
         'How This Course Works',
@@ -174,12 +172,12 @@ VALUES (
     ), (
         'Event-Based Architecture',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        'user',
+        'employee',
         '2021-10-06 13:13:37'
     ), (
         'Event-Based Architecture',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        'user',
+        'employee',
         '2021-10-06 13:13:37'
     ), (
         'How This Course Works',

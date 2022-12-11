@@ -6,7 +6,15 @@
 body{
     font-family: 'Open Sans', sans-serif;
     background-color: #FFFFFF;
+    min-height:100vh; display:block;position:relative;
 }
+
+body::after{
+    margin-top:20px;
+    height: 330px;
+    content: '';
+    display: block;
+  }
 
 /* ==================CSS Variables============== */
     :root{
