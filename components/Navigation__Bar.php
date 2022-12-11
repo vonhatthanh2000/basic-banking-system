@@ -60,15 +60,8 @@ error_reporting(E_ALL);
         </li>
         <?php }else{ ?>
         <li>
-          <a href="<?php echo SITE__PATH; ?>/pages/New__Notify.php?type=n">Add Notify</a>
-        </li>
-        <li>
             <a href="<?php echo SITE__PATH; ?>/pages/Change_Password.php?type=n">Change Password</a>
         </li>
-        <li>
-          <a href="<?php echo SITE__PATH; ?>/pages/Notifies.php?type=n">All Notifies</a>
-        </li>
-        
         <?php  
                                 $euser = $_SESSION['USER_NAME'];
                                 $employe_id = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM employe WHERE employe_id = '$euser'"));
