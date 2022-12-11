@@ -52,13 +52,13 @@
                 <table class="table table-striped table-hover table-bordered">
                     <thead>
                         <tr>
-                            <th width="15%" scope="col">Employee Id</th>
+                            <th width="10%" scope="col">Employee Id</th>
                             <th width="15%" scope="col">Designation</th>
                             <th width="10%" scope="col">Salary</th>
                             <th width="20%" scope="col">Name</th>
                             <th width="10%" scope="col">Gender</th>
                             <th width="10%" scope="col">Joined</th>
-                            <th width="20%" scope="col">Action</th>
+                            <th width="10%" scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
