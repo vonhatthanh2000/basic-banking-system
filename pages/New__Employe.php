@@ -12,10 +12,8 @@
         $birthday = "";
         $email = "";
         $phone_no = "";
-        $state = "";
         $district = "";
         $city = "";
-        $pin_code = "";
         $designation = "";
         $salary = "";
         $rolee = "";
@@ -53,10 +51,8 @@
                 $birthday = $res["birthday"];
                 $email = $res["email_id"];
                 $phone_no = $res["phone_no"];
-                $state = $res["state"];
                 $district = $res["district"];
                 $city = $res["city"];
-                $pin_code = $res["pin_code"];
                 $designation = $res["designation"];
                 $salary = $res["salary"];
                 $u = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM `users` WHERE `usename`='$employe_id'"));
@@ -77,10 +73,7 @@
                     }else{
                         $employe_id = "EM00001";
                     }
-                // ======X===Genrate Id Number===X=======
             }
-        //========X==View Profile Functionality==X=============
-    //=========X===For Other Functionality===X======
 
     // ============Get Massege Here===========
         if(isset($_GET["msg"]) && $_GET["msg"] != ""){
@@ -102,17 +95,15 @@
             $birthday = mysqli_escape_string($con,$_POST['birthday']);
             $email = mysqli_escape_string($con,$_POST['email']);
             $phone_no = mysqli_escape_string($con,$_POST['number']);
-            $state = mysqli_escape_string($con,$_POST['state']);
             $district = mysqli_escape_string($con,$_POST['district']);
             $city = mysqli_escape_string($con,$_POST['city']);
-            $pin_code =mysqli_escape_string($con,$_POST['pin_code']);
             $designation = mysqli_escape_string($con,$_POST['designation']);
             $salary = mysqli_escape_string($con,$_POST['salary']);
             $rolee = mysqli_escape_string($con,$_POST['role']);
 
             if($option == ''){
                 $hash_pass = md5($phone_no);
-                mysqli_query($con,"INSERT  INTO employe (employe_id,name,gender,email_id,birthday,phone_no,state,district,city,pin_code,designation,salary) VALUES ('$employe_id','$name','$gender','$email','$birthday','$phone_no','$state','$district','$city','$pin_code','$designation','$salary')");
+                mysqli_query($con,"INSERT  INTO employe (employe_id,name,gender,email_id,birthday,phone_no,district,city,designation,salary) VALUES ('$employe_id','$name','$gender','$email','$birthday','$phone_no','$district','$city','$designation','$salary')");
 
                 if($rolee == "admin"){
                     mysqli_query($con,"INSERT INTO users (usename,password,type,role) VALUES ('$employe_id','$hash_pass',0,'admin')");
@@ -122,7 +113,7 @@
     
                 echo "<script>window.location='New__Employe.php?type=n&msg=msg'</script>";
             }else{
-                mysqli_query($con,"UPDATE employe SET employe_id='$employe_id',name='$name',gender='$gender',email_id='$email',birthday='$birthday',phone_no='$phone_no',state='$state',district='$district',city='$city',pin_code='$pin_code',designation='$designation',salary='$salary' WHERE id = $id");
+                mysqli_query($con,"UPDATE employe SET employe_id='$employe_id',name='$name',gender='$gender',email_id='$email',birthday='$birthday',phone_no='$phone_no',district='$district',city='$city',designation='$designation',salary='$salary' WHERE id = $id");
                 
                 if($rolee == 'admin'){
                     mysqli_query($con,"UPDATE users SET type='0', role='admin' WHERE usename = '$employe_id'");
@@ -153,8 +144,8 @@
                         ";
                     }else{
                         echo "
-                            <h2>Add Employe</h2>
-                            <p>Add Employe Details Here</p>
+                            <h2>Add Employee</h2>
+                            <p>Add Employee Details Here</p>
                         ";
                     }
                 ?>
@@ -242,10 +233,7 @@
                             } 
                         ?> value="<?php echo $birthday ?>"  class="form-control" name="birthday" id="inputPassword4" required>
                 </div>
-                <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">State</label>
-                    <input <?php echo $disabled; ?> type="text" value="<?php echo $state ?>" class="form-control" name="state" id="inputPassword4" required>
-                </div>
+                
                 <div class="col-md-6">
                     <label for="inputPassword4" class="form-label">District</label>
                     <input <?php echo $disabled; ?> type="text" value="<?php echo $district ?>" class="form-control" name="district" id="inputPassword4" required>
@@ -254,10 +242,7 @@
                     <label for="inputAddress" class="form-label">City</label>
                     <input <?php echo $disabled; ?> type="text" value="<?php echo $city ?>" class="form-control" id="inputAddress" name="city" required>
                 </div>
-                <div class="col-md-6">
-                    <label for="inputAddress" class="form-label">Pin Code</label>
-                    <input <?php echo $disabled; ?> type="text" value="<?php echo $pin_code ?>" class="form-control" id="inputAddress" name="pin_code" required>
-                </div>
+                
                 <?php if($option == 'view'){ ?>
 
                 <?php }else{ ?>

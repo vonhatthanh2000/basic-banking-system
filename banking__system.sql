@@ -24,236 +24,6 @@ START TRANSACTION;
 
 SET time_zone = "+00:00";
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */
-
-;
-
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */
-
-;
-
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */
-
-;
-
-/*!40101 SET NAMES utf8mb4 */
-
-;
-
---
-
--- Database: `banking__system`
-
---
-
--- --------------------------------------------------------
-
---
-
--- Table structure for table `customer`
-
---
-
-CREATE TABLE
-    `customer` (
-        `id` int(11) NOT NULL,
-        `name` varchar(255) NOT NULL,
-        `role` varchar(255) NOT NULL DEFAULT 'customer',
-        `gender` varchar(255) NOT NULL,
-        `birthday` varchar(255) NOT NULL,
-        `email` varchar(255) NOT NULL,
-        `phone_no` varchar(15) NOT NULL,
-        `state` varchar(255) NOT NULL,
-        `district` varchar(255) NOT NULL,
-        `city` varchar(255) NOT NULL,
-        `pin_code` varchar(15) NOT NULL,
-        `account_no` varchar(50) NOT NULL,
-        `aadhar_number` varchar(50) NOT NULL,
-        `acount_balance` int(50) NOT NULL,
-        `created_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-    ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
-
---
-
--- Dumping data for table `customer`
-
---
-
-INSERT INTO
-    `customer` (
-        `id`,
-        `name`,
-        `gender`,
-        `birthday`,
-        `email`,
-        `phone_no`,
-        `state`,
-        `district`,
-        `city`,
-        `pin_code`,
-        `account_no`,
-        `aadhar_number`,
-        `acount_balance`,
-        `created_date`
-    )
-VALUES (
-        3,
-        'Pruthviraj Rajput',
-        'Male',
-        ' 2000-05-06',
-        'pruthviraj.rajput011@gmail.com',
-        '1234567890',
-        'Maharashtra',
-        'Nandurbar',
-        'Shahada',
-        '425444',
-        'AC677209939100',
-        '12345678900000',
-        9000,
-        '2021-10-06 13:17:23'
-    ), (
-        4,
-        'Kirti Patil',
-        'Female',
-        ' 2000-06-06',
-        'kirtipatil@gmail.com',
-        '1234567891',
-        'Maharashtra',
-        'Jalgaon',
-        'Jalgaon',
-        '425444',
-        'AC677209939101',
-        '12345678900001',
-        10000,
-        '2021-10-06 13:17:23'
-    ), (
-        5,
-        'Harshada Chaudhry ',
-        'Female',
-        ' 2000-07-14',
-        'harshadachoudhary@gmail.com',
-        '123467893',
-        'Maharashtra',
-        'Jalgaon',
-        'Jalgaon',
-        '425444',
-        'AC677209939102',
-        '12345678900002',
-        10000,
-        '2021-10-06 12:45:59'
-    ), (
-        6,
-        'Sumit Chauhan ',
-        'Male',
-        ' 2000-06-06',
-        'sumit@gmail.com',
-        '1234567892',
-        'Maharashtra',
-        'Pune',
-        'Pune',
-        '425444',
-        'AC677209939103',
-        '12345678900003',
-        10000,
-        '2021-10-06 12:48:27'
-    ), (
-        7,
-        'Bhumika Pawar',
-        'Female',
-        ' 2000-06-14',
-        'bhumikapawar29@gmail.com',
-        '1234567894',
-        'Maharashtra',
-        'Nandurbar',
-        'Shahada',
-        '425444',
-        'AC677209939104',
-        '12345678900004',
-        20000,
-        '2021-10-06 12:49:23'
-    ), (
-        8,
-        'Gaurav Pawar',
-        'Male',
-        ' 2003-03-02',
-        'gauravpawar12@gmail.com',
-        '1234567895',
-        'Maharashtra',
-        'Nandurbar',
-        'Shahada',
-        '425444',
-        'AC677209939105',
-        '12345678900005',
-        50000,
-        '2021-10-06 12:50:12'
-    ), (
-        9,
-        '+918767286769',
-        'Female',
-        ' 2002-05-22',
-        'pruthviraj.rajput011@gmail.com',
-        '1234567896',
-        'Maharashtra',
-        'Dhule',
-        'Shirpure',
-        '425444',
-        'AC677209939106',
-        '12345678900006',
-        9000,
-        '2021-10-06 12:52:29'
-    ), (
-        10,
-        'Raj Rajput',
-        'Male',
-        ' 2000-10-11',
-        'rajrajputrr2233@gmail.com',
-        '1234567897',
-        'Maharashtra',
-        'Dhule',
-        'Shirpure',
-        '425444',
-        'AC677209939107',
-        '12345678900007',
-        3000,
-        '2021-10-06 12:53:31'
-    ), (
-        11,
-        'Manas Jadhav',
-        'Male',
-        ' 2000-05-09',
-        'manasjadhav@gmail.com',
-        '1234567898',
-        'Maharashtra',
-        'Dhule',
-        'Shirpure',
-        '425444',
-        'AC677209939108',
-        '12345678900008',
-        5000,
-        '2021-10-06 12:54:39'
-    ), (
-        12,
-        'Rajesh Patil',
-        'Male',
-        ' 2000-01-11',
-        'rajeshpatil@gmail.com',
-        '1234567810',
-        'Maharashtra',
-        'Dhule',
-        'Dhule',
-        '425444',
-        'AC677209939109',
-        '12345678900010',
-        4000,
-        '2021-10-06 12:56:01'
-    );
-
--- --------------------------------------------------------
-
---
-
--- Table structure for table `employe`
-
 --
 
 CREATE TABLE
@@ -266,10 +36,8 @@ CREATE TABLE
         `email_id` varchar(255) NOT NULL,
         `birthday` date NOT NULL,
         `phone_no` varchar(15) NOT NULL,
-        `state` varchar(255) NOT NULL,
         `district` varchar(255) NOT NULL,
         `city` varchar(255) NOT NULL,
-        `pin_code` int(11) NOT NULL,
         `designation` varchar(255) NOT NULL,
         `salary` int(50) NOT NULL,
         `join_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -290,10 +58,8 @@ INSERT INTO
         `email_id`,
         `birthday`,
         `phone_no`,
-        `state`,
         `district`,
         `city`,
-        `pin_code`,
         `designation`,
         `salary`,
         `join_date`
@@ -306,10 +72,8 @@ VALUES (
         'kirtipatil@gmail.com',
         '2000-05-11',
         '1234567890',
-        'Maharashtra',
         'Jalgaon',
         'Jalgaon',
-        425444,
         'Accountant ',
         50000,
         '2021-10-06 12:29:06'
@@ -318,117 +82,6 @@ VALUES (
 -- --------------------------------------------------------
 
 --
-
--- Table structure for table `transaction`
-
---
-
-CREATE TABLE
-    `transaction` (
-        `id` int(11) NOT NULL,
-        `customer_ac` varchar(50) NOT NULL,
-        `transaction_type` varchar(255) NOT NULL,
-        `transfer_customer_ac` varchar(50) NOT NULL,
-        `amount` int(15) NOT NULL,
-        `transfer_by` int(50) NOT NULL,
-        `transaction_on` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-    ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
-
---
-
--- Dumping data for table `transaction`
-
---
-
-INSERT INTO
-    `transaction` (
-        `id`,
-        `customer_ac`,
-        `transaction_type`,
-        `transfer_customer_ac`,
-        `amount`,
-        `transfer_by`,
-        `transaction_on`
-    )
-VALUES (
-        1,
-        'AC677209939100',
-        'Deposite',
-        'NA',
-        1000,
-        1,
-        '2021-10-06 13:13:37'
-    ), (
-        2,
-        'AC677209939100',
-        'Deposite',
-        'NA',
-        5000,
-        1,
-        '2021-10-06 13:14:01'
-    ), (
-        3,
-        'AC677209939101',
-        'Deposite',
-        'NA',
-        10000,
-        1,
-        '2021-10-06 13:14:35'
-    ), (
-        4,
-        'AC677209939100',
-        'Withdrawal',
-        'NA',
-        200,
-        1,
-        '2021-10-06 13:15:25'
-    ), (
-        5,
-        'AC677209939100',
-        'Deposite',
-        'NA',
-        300,
-        1,
-        '2021-10-06 13:15:45'
-    ), (
-        6,
-        'AC677209939100',
-        'Deposite',
-        'NA',
-        900,
-        1,
-        '2021-10-06 13:16:13'
-    ), (
-        7,
-        'AC677209939101',
-        'Withdrawal',
-        'NA',
-        200,
-        1,
-        '2021-10-06 13:16:29'
-    ), (
-        8,
-        'AC677209939100',
-        'Transfer',
-        'AC677209939101',
-        1000,
-        1,
-        '2021-10-06 13:16:47'
-    ), (
-        9,
-        'AC677209939101',
-        'Transfer',
-        'AC677209939100',
-        1000,
-        1,
-        '2021-10-06 13:17:23'
-    );
-
--- --------------------------------------------------------
-
---
-
--- Table structure for table `users`
 
 --
 
@@ -446,10 +99,6 @@ CREATE TABLE
 
 -- Dumping data for table `users`
 
-INSERT INTO `users` (`id`, `usename`, `password`, `type`, `last_login`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 0, '2021-10-06 10:52:57'),
-(2, 'EM00001', '21232f297a57a5a743894a0e4a801fc3', 1, '2021-10-06 12:29:06');
-
 INSERT INTO
     `users` (
         `id`,
@@ -460,19 +109,17 @@ INSERT INTO
     )
 VALUES (
         1,
-        'Spark Foundation Bank',
         'admin',
+        '21232f297a57a5a743894a0e4a801fc3',
         0,
         '2021-10-06 10:52:57'
     ), (
         2,
         'EM00001',
-        '1234567890',
+        '21232f297a57a5a743894a0e4a801fc3',
         1,
         '2021-10-06 12:29:06'
     );
-
---
 
 -- Table structure for table `notify`
 
@@ -480,7 +127,7 @@ VALUES (
 
 CREATE TABLE
     `notify` (
-        `id` int(11) NOT NULL AUTO_INCREMENT,
+        `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
         `title` varchar(255) NOT NULL,
         `content` varchar(255) NOT NULL,
         `role` enum('admin', 'employee', 'user') NOT NULL DEFAULT 'user',
@@ -489,20 +136,16 @@ CREATE TABLE
 
 --
 
--- Dumping data for table `transaction`
-
 --
 
 INSERT INTO
     `notify` (
-        `id`,
         `title`,
         `content`,
         `role`,
         `created_At`
     )
 VALUES (
-        1,
         'Event-Based Architecture',
         'Microservices
                   are the number one
@@ -512,13 +155,11 @@ VALUES (
         'user',
         '2021-10-06 13:13:37'
     ), (
-        2,
         'How This Course Works',
         'This course doesnt focus on using an off-the-shelf microservices framework. Many exist, but they hide the inner workings and challenges of microservices away from you',
         'employee',
         '2021-10-06 13:14:01'
     ), (
-        3,
         'Event-Based Architecture',
         'Microservices
                   are the number one
@@ -528,7 +169,6 @@ VALUES (
         'user',
         '2021-10-06 13:13:37'
     ), (
-        4,
         'Event-Based Architecture',
         'Microservices
                   are the number one
@@ -538,52 +178,31 @@ VALUES (
         'user',
         '2021-10-06 13:13:37'
     ), (
-        5,
         'How This Course Works',
         'This course doesnt focus on using an off-the-shelf microservices framework. Many exist, but they hide the inner workings and challenges of microservices away from you',
         'employee',
         '2021-10-06 13:14:01'
     ), (
-        6,
         'How This Course Works',
         'This course doesnt focus on using an off-the-shelf microservices framework. Many exist, but they hide the inner workings and challenges of microservices away from you',
         'employee',
         '2021-10-06 13:14:01'
     ), (
-        7,
         'How This Course Works',
         'This course doesnt focus on using an off-the-shelf microservices framework. Many exist, but they hide the inner workings and challenges of microservices away from you',
         'employee',
         '2021-10-06 13:14:01'
     ), (
-        8,
         'How This Course Works',
         'This course doesnt focus on using an off-the-shelf microservices framework. Many exist, but they hide the inner workings and challenges of microservices away from you',
         'employee',
         '2021-10-06 13:14:01'
     ), (
-        9,
         'What Technology Youll Use',
         'Because we are building a full stack application, we will use a variety of technologies. On the frontend, well use React and Next JS ',
         'admin',
         '2021-10-06 13:17:23'
     );
-
-ALTER TABLE `notify` ADD PRIMARY KEY (`id`);
-
---
-
--- Indexes for dumped tables
-
---
-
---
-
--- Indexes for table `customer`
-
---
-
-ALTER TABLE `customer` ADD PRIMARY KEY (`id`);
 
 --
 
@@ -592,18 +211,6 @@ ALTER TABLE `customer` ADD PRIMARY KEY (`id`);
 --
 
 ALTER TABLE `employe` ADD PRIMARY KEY (`id`);
-
---
-
--- Indexes for table `transaction`
-
---
-
-ALTER TABLE `transaction` ADD PRIMARY KEY (`id`);
-
---
-
--- Indexes for table `users`
 
 --
 
@@ -617,16 +224,6 @@ ALTER TABLE `users` ADD PRIMARY KEY (`id`);
 
 --
 
--- AUTO_INCREMENT for table `customer`
-
---
-
-ALTER TABLE
-    `customer` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,
-    AUTO_INCREMENT = 14;
-
---
-
 -- AUTO_INCREMENT for table `employe`
 
 --
@@ -634,16 +231,6 @@ ALTER TABLE
 ALTER TABLE
     `employe` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,
     AUTO_INCREMENT = 2;
-
---
-
--- AUTO_INCREMENT for table `transaction`
-
---
-
-ALTER TABLE
-    `transaction` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,
-    AUTO_INCREMENT = 10;
 
 --
 
@@ -656,15 +243,3 @@ ALTER TABLE
     AUTO_INCREMENT = 3;
 
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */
-
-;
-
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */
-
-;
-
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */
-
-;

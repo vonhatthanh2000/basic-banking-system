@@ -7,7 +7,6 @@
         if($_SESSION['ROLE'] != 0){
             header('Location:Notifies.php?type=n');
         }
-    // ========X===Condition===x=========
 
     // ===========All Dashboard==========
         $sql = mysqli_query($con,"SELECT * FROM employe");

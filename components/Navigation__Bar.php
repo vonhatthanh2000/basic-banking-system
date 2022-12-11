@@ -52,11 +52,9 @@ error_reporting(E_ALL);
         <li>
           <a href="<?php echo SITE__PATH; ?>/pages/Employes_Detailes.php?type=n">All Employees</a>
         </li>
-        
         <li>
             <a href="<?php echo SITE__PATH; ?>/pages/Change_Password.php?type=n">Change Password</a>
         </li>
-        
         <li>
           <a href="<?php echo SITE__PATH; ?>/components/Logout.php">Logout</a>
         </li>
