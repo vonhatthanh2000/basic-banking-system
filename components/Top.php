@@ -34,11 +34,6 @@
   <!-- -----X---External Style Sheet----X---- -->
 </head>
 <style>
-  body::after{
-    margin-top:20px;
-    height: 330px;
-    content: '';
-    display: block;
-  }
+  
 </style>
-<body style="min-height:100vh; display:block;position:relative;">
+<body >
