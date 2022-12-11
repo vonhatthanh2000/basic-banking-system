@@ -12,12 +12,12 @@
             </p>
             </div>
 
-            <div class="col-md-6 col-lg-4 col-xl-3 mx-auto mb-md-0 mb-4">
+            <div class="col-md-8 col-lg-8 col-xl-5 mx-auto mb-md-0 mb-8">
             <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-            <p><i class="fas fa-home me-3"></i> Ho Chi Minh, Thanh Thai Q10</p>
+            <p><i class="fas fa-home me-3"></i> Ho Chi Minh, 268 Ly Thuong Kiet District 10</p>
             <p>
                 <i class="fas fa-envelope me-3"></i>
-                info@example.com
+                bkbank@example.com
             </p>
             <p><i class="fas fa-phone me-3"></i> + 84 234 567 88</p>
             <p><i class="fas fa-print me-3"></i> + 84 234 567 89</p>

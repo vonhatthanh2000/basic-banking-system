@@ -63,18 +63,18 @@
                             <tr>
                                 <th scope="row" class="text-primary"><?php echo $row['id']?></th>
                                 <th scope="row" class="text-success"><?php echo  $row['title']?></th>
-                                <td><?php echo $row['content']?></td>
-                                <td><?php echo $row['role']?></td>
-                                <td>
+                                <td style="vertical-align:middle;"><?php echo $row['content']?></td>
+                                <td style="vertical-align:middle;"><?php echo $row['role']?></td>
+                                <td style="vertical-align:middle;">
                                     <?php 
                                         $dateStr=strtotime($row['created_At']);
                                         echo date('d-m-Y',$dateStr);
                                     ?>
                                 </td>
                                 
-                                <td class="d-flex justify-content-around">
+                                <td class="" style="min-height:100%;text-align: center;justify-content:center;align-self:center;vertical-align:middle;">
                                     <a href="New__Notify.php?type=n&id=<?php echo $row['id']?>&option=edit"><i class="fas fa-pen text-success"></i></a>
-                                    <a href="?type=n&id=<?php echo $row['id']?>&option=delete"><i class="fas fa-trash text-danger"></i></a>
+                                    <a href="?type=n&id=<?php echo $row['id']?>&option=delete"><i class="fas fa-trash text-danger" style="margin-left:20px"></i></a>
                                 </td>
                             </tr>
                         <?php } ?>
