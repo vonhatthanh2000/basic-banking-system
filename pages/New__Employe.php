@@ -18,6 +18,7 @@
         $pin_code = "";
         $designation = "";
         $salary = "";
+        $rolee = "";
 
         $checked_id = "";
         $employe_id	 = "";
@@ -58,6 +59,9 @@
                 $pin_code = $res["pin_code"];
                 $designation = $res["designation"];
                 $salary = $res["salary"];
+                $u = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM `users` WHERE `usename`='$employe_id'"));
+
+                $rolee = $u['role'];
             }else{
                 // ==========Genrate Id Number===========
                     $sql_id = mysqli_query($con,"SELECT employe_id FROM employe ORDER BY id DESC LIMIT 1");
@@ -104,20 +108,29 @@
             $pin_code =mysqli_escape_string($con,$_POST['pin_code']);
             $designation = mysqli_escape_string($con,$_POST['designation']);
             $salary = mysqli_escape_string($con,$_POST['salary']);
+            $rolee = mysqli_escape_string($con,$_POST['role']);
 
             if($option == ''){
                 $hash_pass = md5($phone_no);
                 mysqli_query($con,"INSERT  INTO employe (employe_id,name,gender,email_id,birthday,phone_no,state,district,city,pin_code,designation,salary) VALUES ('$employe_id','$name','$gender','$email','$birthday','$phone_no','$state','$district','$city','$pin_code','$designation','$salary')");
 
-                mysqli_query($con,"INSERT INTO users (usename,password,type) VALUES ('$employe_id','$hash_pass',1)");
+                if($rolee == "admin"){
+                    mysqli_query($con,"INSERT INTO users (usename,password,type,role) VALUES ('$employe_id','$hash_pass',0,'admin')");
+                }else{
+                    mysqli_query($con,"INSERT INTO users (usename,password,type,role) VALUES ('$employe_id','$hash_pass',1,'employee')");
+                }
     
                 echo "<script>window.location='New__Employe.php?type=n&msg=msg'</script>";
             }else{
                 mysqli_query($con,"UPDATE employe SET employe_id='$employe_id',name='$name',gender='$gender',email_id='$email',birthday='$birthday',phone_no='$phone_no',state='$state',district='$district',city='$city',pin_code='$pin_code',designation='$designation',salary='$salary' WHERE id = $id");
-
-                mysqli_query($con,"UPDATE users SET username='$employe_id',password='$phone_no',type='1' WHERE username = '$employe_id'");
-
-                echo "<script>window.location='Employes_Detailes.php?type=n&msg=msg'</script>";
+                
+                if($rolee == 'admin'){
+                    mysqli_query($con,"UPDATE users SET type='0', role='admin' WHERE usename = '$employe_id'");
+                }else{
+                    mysqli_query($con,"UPDATE users SET type='1', role='employee' WHERE usename = '$employe_id'");
+                }
+                
+                echo "<script>window.location='Employes_Detailes.php?type=n&msg=msg".$rolee."'</script>";
             }
         }
     // ======X=== Send Records Functionality ===X===
@@ -184,6 +197,33 @@
                                         <option value='Male'>Male</option>
                                         <option value='Female'>Femail</option>
                                     ";
+                                }   
+                            ?>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="role" class="form-label">Role</label>
+                    <select <?php echo $disabled; ?> name="role" id="role" class="form-select" required>
+                            <?php 
+                                if($option == 'view'){
+                                    echo "<option value= '$gender' selected>$rolee</option>";
+                                }else if($option == 'edit' || $option == 'view'){
+                                        $select_admin = "";
+                                        $select_employee = "";
+                                        if ($rolee == "admin") {
+                                            $select_admin = "selected";
+                                        }else{
+                                            $select_employee = "selected";
+                                        }
+                                    echo "
+                                    <option value= '' >Select Role</option>
+                                    <option value='admin' ".$select_admin.">Admin</option>
+                                    <option value='employee' ".$select_employee.">Employee</option>";
+                                }else{
+                                    echo "
+                                    <option value= '' selected>Select Role</option>
+                                    <option value='admin'>Admin</option>
+                                    <option value='employee'>Employee</option>";
                                 }   
                             ?>
                     </select>
