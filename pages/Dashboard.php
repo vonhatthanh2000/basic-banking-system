@@ -27,17 +27,17 @@
         <?php include '../components/User_Name.php' ?>
         <div class="container mt-5">
             <div class="container mt-5">
-            <div class="row">
-                <div class="col-xl-6">
-                    <div class="card text-dark bg-light mb-3" style="max-width: 27rem;">
+            <div class="d-flex justify-content-around">
+                <div class="col-xl-6 d-flex justify-content-around" >
+                    <div class="card text-dark bg-light mb-3" style="max-width: 27rem;width:235px;"">
                         <div class="card-body text-center">
                             <h4 class="card-title text-uppercase text-primary">Total Employee</h4>
                             <h1 class="card-text text-success"><?php echo $total_employes; ?></h1>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-6">
-                    <div class="card text-dark bg-light mb-3" style="max-width: 27rem;">
+                <div class="col-xl-6 d-flex justify-content-around">
+                    <div class="card text-dark bg-light mb-3" style="max-width: 27rem; width:235px;">
                         <div class="card-body text-center">
                             <h4 class="card-title text-uppercase text-primary">Total Admin</h4>
                             <h1 class="card-text text-success"><?php echo $total_admin; ?></h1>
