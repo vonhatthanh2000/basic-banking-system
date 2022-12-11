@@ -65,9 +65,22 @@ INSERT INTO
         `join_date`
     )
 VALUES (
+        0,
+        'EM00000',
+        'Andy Vo',
+        'Female',
+        'kirtipatil@gmail.com',
+        '2000-05-11',
+        '1234567890',
+        'Jalgaon',
+        'Jalgaon',
+        'Accountant ',
+        50000,
+        '2021-10-06 12:29:06'
+    ),(
         1,
         'EM00001',
-        'Kirti Patil',
+        'Lady Pham',
         'Female',
         'kirtipatil@gmail.com',
         '2000-05-11',
@@ -104,6 +117,7 @@ INSERT INTO
         `id`,
         `usename`,
         `password`,
+        `role`,
         `type`,
         `last_login`
     )
@@ -111,12 +125,14 @@ VALUES (
         1,
         'admin',
         '21232f297a57a5a743894a0e4a801fc3',
+        'admin',
         0,
         '2021-10-06 10:52:57'
     ), (
         2,
         'EM00001',
         '21232f297a57a5a743894a0e4a801fc3',
+        'employee',
         1,
         '2021-10-06 12:29:06'
     );
@@ -147,34 +163,22 @@ INSERT INTO
     )
 VALUES (
         'Event-Based Architecture',
-        'Microservices
-                  are the number one
-                  solution for
-                  building and scaling out
-                  apps that are intended to grow',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         'user',
         '2021-10-06 13:13:37'
     ), (
         'How This Course Works',
-        'This course doesnt focus on using an off-the-shelf microservices framework. Many exist, but they hide the inner workings and challenges of microservices away from you',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         'employee',
         '2021-10-06 13:14:01'
     ), (
         'Event-Based Architecture',
-        'Microservices
-                  are the number one
-                  solution for
-                  building and scaling out
-                  apps that are intended to grow',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         'user',
         '2021-10-06 13:13:37'
     ), (
         'Event-Based Architecture',
-        'Microservices
-                  are the number one
-                  solution for
-                  building and scaling out
-                  apps that are intended to grow',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         'user',
         '2021-10-06 13:13:37'
     ), (
@@ -184,22 +188,22 @@ VALUES (
         '2021-10-06 13:14:01'
     ), (
         'How This Course Works',
-        'This course doesnt focus on using an off-the-shelf microservices framework. Many exist, but they hide the inner workings and challenges of microservices away from you',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         'employee',
         '2021-10-06 13:14:01'
     ), (
         'How This Course Works',
-        'This course doesnt focus on using an off-the-shelf microservices framework. Many exist, but they hide the inner workings and challenges of microservices away from you',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         'employee',
         '2021-10-06 13:14:01'
     ), (
         'How This Course Works',
-        'This course doesnt focus on using an off-the-shelf microservices framework. Many exist, but they hide the inner workings and challenges of microservices away from you',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         'employee',
         '2021-10-06 13:14:01'
     ), (
         'What Technology Youll Use',
-        'Because we are building a full stack application, we will use a variety of technologies. On the frontend, well use React and Next JS ',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         'admin',
         '2021-10-06 13:17:23'
     );
