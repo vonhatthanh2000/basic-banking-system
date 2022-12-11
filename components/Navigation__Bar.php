@@ -59,9 +59,7 @@ error_reporting(E_ALL);
           <a href="<?php echo SITE__PATH; ?>/components/Logout.php">Logout</a>
         </li>
         <?php }else{ ?>
-        <li>
-            <a href="<?php echo SITE__PATH; ?>/pages/Change_Password.php?type=n">Change Password</a>
-        </li>
+        
         <?php  
                                 $euser = $_SESSION['USER_NAME'];
                                 $employe_id = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM employe WHERE employe_id = '$euser'"));
